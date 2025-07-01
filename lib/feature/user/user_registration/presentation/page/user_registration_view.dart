@@ -101,6 +101,8 @@ class UserRegistrationView extends StatelessWidget {
                                   return Validation.emailValidation(value);
                                 }),
                             LongTextFieldForm(
+                                obsureText: true,
+                                showSuffixIcon: true,
                                 controller: password,
                                 onChanged: (value) {},
                                 labelText: context.loc.password,
@@ -182,4 +184,3 @@ class UserRegistrationView extends StatelessWidget {
             }));
   }
 }
-
