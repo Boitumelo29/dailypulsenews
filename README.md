@@ -1,16 +1,44 @@
-# dailypulsenews
+# Flutter News App
 
-A new Flutter project.
+A simple MVVM news app built with Flutter using the NewsAPI and Firebase.
+
+## Features
+
+- Fetches Top Headlines from NewsAPI
+- Switch between United States and Canada
+- Persistent country preference (SharedPreferences)
+- View article details
+- Refresh headlines
+- MVVM architecture + Firebase integration
+
+## Tech Stack
+
+- Flutter + Dart
+- MVVM
+- Bloc
+- auto_route
+- Firebase 
+- SharedPreferences
+- envied for API secrets
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Clone the repo
+2. Add `.env` file in root:
+API keys can be found in project documentation.
+3. Run `flutter pub get`
+4. Run the app using:
+flutter run
 
-A few resources to get you started if this is your first Flutter project:
+## Folder Structure
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+See `/lib` for detailed architecture.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Firebase
+
+
+
+## Notes
+
+- Secrets are never committed
+- Feature-based git commits used
