@@ -1,6 +1,6 @@
 
 
-import 'package:dailypulsenews/core/env/env.dart';
+import 'package:dailypulsenews/core/core.dart';
 import 'package:dailypulsenews/feature/headlines/data/models/article_model.dart';
 import 'package:dio/dio.dart';
 

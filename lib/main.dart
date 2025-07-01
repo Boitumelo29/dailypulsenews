@@ -1,3 +1,3 @@
-import 'package:dailypulsenews/core/bootstrap/bootstrap.dart';
+import 'package:dailypulsenews/core/core.dart';
 
 void main() => bootstrap();

@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:dailypulsenews/core/failure/failures.dart';
+import 'package:dailypulsenews/core/core.dart';
 import 'package:dailypulsenews/feature/headlines/data/models/article_model.dart';
 import 'package:dailypulsenews/feature/headlines/domain/repositories/news_repository.dart';
 import 'package:dartz/dartz.dart';
