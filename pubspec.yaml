@@ -46,6 +46,9 @@ dependencies:
   logger: ^2.5.0
   envied: ^1.1.1
   get: ^4.7.2
+  dio: ^5.8.0+1
+  dartz: ^0.10.1
+  get_it: ^7.6.0
 
 dev_dependencies:
   flutter_test:

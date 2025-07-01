@@ -10,4 +10,10 @@ abstract class Env {
 
   @EnviedField(varName: 'API_KEY', obfuscate: true)
   static  String apiKey = _Env.apiKey;
+
+  @EnviedField(varName: 'NEWS_API_KEY', obfuscate: true)
+  static  String newsApiKey = _Env.newsApiKey;
+
+  @EnviedField(varName: 'NEWS_API_URL', obfuscate: true)
+  static  String newsApiUrl = _Env.newsApiUrl;
 }
