@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dailypulsenews/presentation/pages/home_screen.dart';
+import 'package:dailypulsenews/feature/headlines/presentation/pages/headlines_page.dart';
 
 part 'router.gr.dart';
 
@@ -11,7 +11,7 @@ class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
     AutoRoute(
-        page: HomeRoute.page, path: '/homeScreen', initial: true),
+        page: HeadlinesRoute.page, path: '/headlinesScreen', initial: true),
   ];
 }
 
