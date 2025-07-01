@@ -32,7 +32,13 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-
+#ignore freezed files
+*.freezed.dart
+#ignore generated files
+*.g.dart
+#ignore.env
+.env
+.env.*
 # Symbolication related
 app.*.symbols
 
