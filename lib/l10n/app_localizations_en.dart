@@ -10,6 +10,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dailyPulseNews => 'Daily Pulse News';
 
   @override
+  String get noNewNews => 'No New News';
+
+  @override
   String get login => 'Login';
 
   @override
@@ -29,4 +32,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get forgotPassword => 'Forgot Password?';
+
+  @override
+  String get selectCountry => 'Select a Country';
 }

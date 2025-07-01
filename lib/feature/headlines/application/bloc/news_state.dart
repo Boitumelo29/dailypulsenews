@@ -6,5 +6,6 @@ abstract class NewsState with _$NewsState {
     @Default(false) bool loading,
     @Default([]) List<Article> articles,
     @Default(None()) Option<Either<Failure, Unit>> articlesEitherFailureOrUnit,
+    @Default('US') String selectedCountry,
   }) = _NewsState;
 }

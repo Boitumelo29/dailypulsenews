@@ -99,6 +99,12 @@ abstract class AppLocalizations {
   /// **'Daily Pulse News'**
   String get dailyPulseNews;
 
+  /// No description provided for @noNewNews.
+  ///
+  /// In en, this message translates to:
+  /// **'No New News'**
+  String get noNewNews;
+
   /// No description provided for @login.
   ///
   /// In en, this message translates to:
@@ -140,6 +146,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Forgot Password?'**
   String get forgotPassword;
+
+  /// No description provided for @selectCountry.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a Country'**
+  String get selectCountry;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

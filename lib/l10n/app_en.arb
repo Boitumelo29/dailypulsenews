@@ -1,11 +1,13 @@
 {
   "@@locale": "en",
   "dailyPulseNews": "Daily Pulse News",
+  "noNewNews": "No New News",
   "login": "Login",
   "signup": "Sign Up",
   "username": "Username",
   "email": "Email",
   "password": "Password",
   "confirmPassword": "Confirm Password",
-  "forgotPassword": "Forgot Password?"
+  "forgotPassword": "Forgot Password?",
+  "selectCountry": "Select a Country"
 }
