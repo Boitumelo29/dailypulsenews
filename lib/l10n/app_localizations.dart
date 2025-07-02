@@ -152,6 +152,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Select a Country'**
   String get selectCountry;
+
+  /// No description provided for @trending.
+  ///
+  /// In en, this message translates to:
+  /// **'Trending • {date}'**
+  String trending(Object date);
+
+  /// No description provided for @noContent.
+  ///
+  /// In en, this message translates to:
+  /// **'No content available'**
+  String get noContent;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
