@@ -9,5 +9,7 @@
   "password": "Password",
   "confirmPassword": "Confirm Password",
   "forgotPassword": "Forgot Password?",
-  "selectCountry": "Select a Country"
+  "selectCountry": "Select a Country",
+  "trending": "Trending • {date}",
+  "noContent":"No content available"
 }
