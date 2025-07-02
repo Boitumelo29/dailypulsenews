@@ -135,6 +135,12 @@ abstract class AppLocalizations {
   /// **'Password'**
   String get password;
 
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'logout'**
+  String get logout;
+
   /// No description provided for @confirmPassword.
   ///
   /// In en, this message translates to:
@@ -146,6 +152,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Forgot Password?'**
   String get forgotPassword;
+
+  /// No description provided for @resetPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get resetPassword;
 
   /// No description provided for @selectCountry.
   ///
@@ -164,6 +176,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No content available'**
   String get noContent;
+
+  /// No description provided for @loginError.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to Login.'**
+  String get loginError;
+
+  /// No description provided for @signUpError.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to Sign Up.'**
+  String get signUpError;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
