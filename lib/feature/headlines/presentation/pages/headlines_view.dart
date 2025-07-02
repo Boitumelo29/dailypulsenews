@@ -25,25 +25,35 @@ class _HeadlinesViewState extends State<HeadlinesView> {
       appBar: AppBar(
         title: Text(context.loc.dailyPulseNews),
       ),
-      body: BlocConsumer<NewsBloc, NewsState>(
-        listener: _listener,
-        builder: (context, state) {
-          if (state.loading) {
-            return const Center(child: CircularProgressIndicator());
-          }
-
-          if (state.articles.isEmpty) {
-            return Center(child: Text(context.loc.noNewNews));
-          }
-
-          return ListView.builder(
-            itemCount: state.articles.length,
-            itemBuilder: (context, index) {
-              final article = state.articles[index];
-              return HeadlineCard(article: article);
-            },
-          );
+      body: RefreshIndicator(
+        displacement: 40,
+        edgeOffset: 8,
+        onRefresh: () async {
+          final selected = context.read<NewsBloc>().state.selectedCountry;
+          context.read<NewsBloc>().add(
+                NewsEvent.fetchHeadlines(country: selected),
+              );
         },
+        child: BlocConsumer<NewsBloc, NewsState>(
+          listener: _listener,
+          builder: (context, state) {
+            if (state.loading) {
+              return const Center(child: CircularProgressIndicator());
+            }
+
+            if (state.articles.isEmpty) {
+              return Center(child: Text(context.loc.noNewNews));
+            }
+
+            return ListView.builder(
+              itemCount: state.articles.length,
+              itemBuilder: (context, index) {
+                final article = state.articles[index];
+                return HeadlineCard(article: article);
+              },
+            );
+          },
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -90,7 +100,7 @@ class _HeadlinesViewState extends State<HeadlinesView> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                     Text(
+                    Text(
                       context.loc.selectCountry,
                       style: TextStyle(
                         fontSize: 20,
