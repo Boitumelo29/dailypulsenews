@@ -6,6 +6,7 @@ import 'package:dailypulsenews/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+@RoutePage()
 class UserRegistrationView extends StatelessWidget {
   const UserRegistrationView({super.key});
 
@@ -25,33 +26,39 @@ class UserRegistrationView extends StatelessWidget {
           backgroundColor: Colors.grey.shade300,
           body: Padding(
             padding: const EdgeInsets.only(top: 60),
-            child: Form(
-              key: formKey,
-              child: Column(
-                children: [
-                  Text(
-                    context.loc.dailyPulseNews,
-                    style: context.textTheme.headlineLarge
-                        ?.copyWith(color: context.colorScheme.primary),
-                  ),
-                  SizedBox(
-                    height: 200,
-                    width: 200,
-                    child: Image.asset(
-                      Assets.lib.assets.pulseNewsLogo.path,
-                      height: 300,
-                      width: 300,
+            child: SingleChildScrollView(
+              padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: Form(
+                key: formKey,
+                child: Column(
+                  children: [
+                    Text(
+                      context.loc.dailyPulseNews,
+                      style: context.textTheme.headlineLarge
+                          ?.copyWith(color: context.colorScheme.primary),
                     ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      height: 750,
+                    SizedBox(
+                      height: 200,
+                      width: 200,
+                      child: Image.asset(
+                        Assets.lib.assets.pulseNewsLogo.path,
+                        height: 300,
+                        width: 300,
+                      ),
+                    ),
+                    Container(
+                      constraints: BoxConstraints(
+                        minHeight: MediaQuery.of(context).size.height * 0.8,
+                      ),
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              topLeft: Radius.circular(20))),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20),
+                          topLeft: Radius.circular(20),
+                        ),
+                      ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
@@ -86,7 +93,6 @@ class UserRegistrationView extends StatelessWidget {
                             ),
                             if (signupSelected)
                               LongTextFieldForm(
-                                  onChanged: (value) {},
                                   controller: username,
                                   labelText: context.loc.username,
                                   validator: (value) {
@@ -94,7 +100,6 @@ class UserRegistrationView extends StatelessWidget {
                                   }),
                             LongTextFieldForm(
                                 controller: email,
-                                onChanged: (value) {},
                                 labelText: context.loc.email,
                                 hintText: context.loc.email,
                                 validator: (value) {
@@ -104,23 +109,15 @@ class UserRegistrationView extends StatelessWidget {
                                 obsureText: true,
                                 showSuffixIcon: true,
                                 controller: password,
-                                onChanged: (value) {},
                                 labelText: context.loc.password,
                                 hintText: context.loc.password,
                                 validator: (value) {
                                   return Validation.passwordValidation(value);
                                 }),
-                            if (loginSelected)
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: TextButton(
-                                  onPressed: () {},
-                                  child: Text(context.loc.forgotPassword),
-                                ),
-                              ),
                             if (signupSelected)
                               LongTextFieldForm(
-                                  onChanged: (value) {},
+                                  obsureText: true,
+                                  showSuffixIcon: true,
                                   labelText: context.loc.confirmPassword,
                                   hintText: context.loc.confirmPassword,
                                   validator: (value) {
@@ -129,26 +126,22 @@ class UserRegistrationView extends StatelessWidget {
                                   }),
                             LongButton(
                                 onTap: () {
-                                  context.router.pushAndPopUntil(
-                                      HeadlinesRoute(),
-                                      predicate: (route) => false);
-
-                                  // if ((formKey.currentState as FormState)
-                                  //     .validate()) {
-                                  //   loginSelected
-                                  //       ? context
-                                  //           .read<UserRegistrationBloc>()
-                                  //           .add(Login(
-                                  //               email: email.text.trim(),
-                                  //               password: password.text.trim()))
-                                  //       : context
-                                  //           .read<UserRegistrationBloc>()
-                                  //           .add(SignUp(
-                                  //               email: email.text.trim(),
-                                  //               password: password.text.trim(),
-                                  //               username:
-                                  //                   username.text.trim()));
-                                  // }
+                                  if ((formKey.currentState as FormState)
+                                      .validate()) {
+                                    loginSelected
+                                        ? context
+                                            .read<UserRegistrationBloc>()
+                                            .add(Login(
+                                                email: email.text.trim(),
+                                                password: password.text.trim()))
+                                        : context
+                                            .read<UserRegistrationBloc>()
+                                            .add(SignUp(
+                                                email: email.text.trim(),
+                                                password: password.text.trim(),
+                                                username:
+                                                    username.text.trim()));
+                                  }
                                 },
                                 title: loginSelected
                                     ? context.loc.login
@@ -157,9 +150,9 @@ class UserRegistrationView extends StatelessWidget {
                           ],
                         ),
                       ),
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
           ),
@@ -171,16 +164,32 @@ class UserRegistrationView extends StatelessWidget {
   void _listener(BuildContext context, UserRegistrationState state) {
     state.loginEitherFailureOrUnit.fold(
         () {},
-        (eitherFailureOrUnit) => eitherFailureOrUnit.fold((failure) {}, (unit) {
+        (eitherFailureOrUnit) => eitherFailureOrUnit.fold((failure) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(context.loc.loginError),
+                  duration: const Duration(seconds: 2),
+                ),
+              );
+            }, (unit) {
               context.router.pushAndPopUntil(HeadlinesRoute(),
                   predicate: (route) => false);
             }));
 
     state.signupEitherFailureOrUnit.fold(
         () {},
-        (eitherFailureOrUnit) => eitherFailureOrUnit.fold((failure) {}, (unit) {
+        (eitherFailureOrUnit) => eitherFailureOrUnit.fold((failure) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(context.loc.signUpError),
+                  duration: const Duration(seconds: 2),
+                ),
+              );
+            }, (unit) {
               context.router.pushAndPopUntil(HeadlinesRoute(),
                   predicate: (route) => false);
             }));
+
+    context.read<UserRegistrationBloc>().add(ResetState());
   }
 }
