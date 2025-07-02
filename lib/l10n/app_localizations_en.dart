@@ -35,4 +35,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get selectCountry => 'Select a Country';
+
+  @override
+  String trending(Object date) {
+    return 'Trending • $date';
+  }
+
+  @override
+  String get noContent => 'No content available';
 }

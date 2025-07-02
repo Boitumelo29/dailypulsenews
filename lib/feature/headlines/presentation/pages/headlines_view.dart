@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+class HeadlinesView extends StatefulWidget {
+  const HeadlinesView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<HeadlinesView> createState() => _HeadlinesViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HeadlinesViewState extends State<HeadlinesView> {
   final List<Map<String, String>> countries = const [
     {'name': 'United States', 'code': 'US'},
     {'name': 'Canada', 'code': 'CA'},
