@@ -12,9 +12,7 @@ class AppProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
       BlocProvider(
-          create: (context) => getIt<AuthBloc>()
-            ..add(CheckAuthStatus())
-            ..add(ListenToAuthChanges()))
+          create: (context) => getIt<AuthBloc>()..add(CheckAuthStatus()))
     ], child: child);
   }
 }

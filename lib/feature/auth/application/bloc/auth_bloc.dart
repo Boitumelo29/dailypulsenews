@@ -13,7 +13,6 @@ part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IAuthRepository repo;
-  StreamSubscription<User?>? _authSubscription;
 
   AuthBloc(this.repo) : super(const AuthState()) {
     on<CheckAuthStatus>((event, emit) {
@@ -41,23 +40,5 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         logE(e);
       }
     });
-
-    on<ListenToAuthChanges>((event, emit) {
-      _authSubscription?.cancel();
-      _authSubscription =
-          FirebaseAuth.instance.authStateChanges().listen((user) {
-        if (user != null) {
-          emit(state.copyWith(status: AuthStatus.authenticated, user: user));
-        } else {
-          emit(state.copyWith(status: AuthStatus.unauthenticated, user: null));
-        }
-      });
-    });
-  }
-
-  @override
-  Future<void> close() {
-    _authSubscription?.cancel();
-    return super.close();
   }
 }
