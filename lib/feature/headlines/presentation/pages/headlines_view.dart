@@ -1,7 +1,10 @@
 import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:dailypulsenews/core/core.dart';
+import 'package:dailypulsenews/feature/auth/application/bloc/auth_bloc.dart';
 import 'package:dailypulsenews/feature/headlines/application/bloc/news_bloc.dart';
 import 'package:dailypulsenews/feature/headlines/presentation/widgets/headline_card.dart';
+import 'package:dailypulsenews/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,6 +25,45 @@ class _HeadlinesViewState extends State<HeadlinesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            BlocListener<AuthBloc, AuthState>(
+              listener: (context, state) {
+                if (state.status == AuthStatus.logout) {
+                  context.router.replace(UserRegistrationRoute());
+                }
+              },
+              child: DrawerHeader(
+                decoration: BoxDecoration(color: Colors.grey.shade300),
+                child: Column(
+                  children: [
+                    Text(
+                      context.loc.dailyPulseNews,
+                      style: context.textTheme.bodyLarge
+                          ?.copyWith(color: context.colorScheme.primary),
+                    ),
+                    SizedBox(
+                      height: 110,
+                      width: 110,
+                      child: Image.asset(
+                        Assets.lib.assets.pulseNewsLogo.path,
+                        height: 80,
+                        width: 80,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.exit_to_app),
+              title: Text(context.loc.logout),
+              onTap: () => context.read<AuthBloc>().add(SignOut()),
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text(context.loc.dailyPulseNews),
       ),
