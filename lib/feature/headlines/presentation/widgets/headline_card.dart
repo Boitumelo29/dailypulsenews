@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:dailypulsenews/core/routers/router.dart';
 import 'package:dailypulsenews/feature/headlines/data/models/article_model.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +30,9 @@ class HeadlineCard extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         subtitle: Text(article.source.name),
-        onTap: () {},
+        onTap: () {
+          context.pushRoute(ArticleDetailRoute(article: article));
+        },
       ),
     );
   }
