@@ -28,10 +28,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get password => 'Password';
 
   @override
+  String get logout => 'logout';
+
+  @override
   String get confirmPassword => 'Confirm Password';
 
   @override
   String get forgotPassword => 'Forgot Password?';
+
+  @override
+  String get resetPassword => 'Reset Password';
 
   @override
   String get selectCountry => 'Select a Country';
@@ -43,4 +49,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noContent => 'No content available';
+
+  @override
+  String get loginError => 'Unable to Login.';
+
+  @override
+  String get signUpError => 'Unable to Sign Up.';
 }

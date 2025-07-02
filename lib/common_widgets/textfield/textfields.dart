@@ -11,15 +11,14 @@ class LongTextFieldForm extends StatefulWidget {
   final String? prefixText;
   final String? Function(String?)? validator;
   final FocusNode? focusNode;
-  final Function(String) onChanged;
+
   final bool isRed;
 
   const LongTextFieldForm(
       {super.key,
       this.controller,
       this.focusNode,
-      required this.onChanged,
-       this.hintText,
+      this.hintText,
       required this.labelText,
       this.showSuffixIcon = false,
       this.showPrefixIcon = false,
@@ -48,7 +47,6 @@ class _LongTextFieldFormState extends State<LongTextFieldForm> {
       /// Todo: dont forget https://www.geeksforgeeks.org/how-to-hide-the-keyboard-when-user-tap-out-of-the-textfield-in-flutter/?ref=ml_lbp
       focusNode: widget.focusNode,
       validator: widget.validator,
-      onChanged: widget.onChanged,
       obscureText: widget.obsureText ? passwordVisible : false,
       controller: widget.controller,
       decoration: InputDecoration(

@@ -50,6 +50,7 @@ dependencies:
   dartz: ^0.10.1
   get_it: ^7.6.0
   firebase_core: ^3.15.0
+  firebase_auth: ^5.6.1
 
 dev_dependencies:
   flutter_test:
