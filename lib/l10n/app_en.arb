@@ -7,9 +7,13 @@
   "username": "Username",
   "email": "Email",
   "password": "Password",
+  "logout": "logout",
   "confirmPassword": "Confirm Password",
   "forgotPassword": "Forgot Password?",
+  "resetPassword": "Reset Password",
   "selectCountry": "Select a Country",
   "trending": "Trending • {date}",
-  "noContent":"No content available"
+  "noContent":"No content available",
+  "loginError": "Unable to Login.",
+  "signUpError": "Unable to Sign Up."
 }
