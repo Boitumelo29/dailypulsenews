@@ -29,22 +29,26 @@ class UserRegistrationBloc
     });
 
     on<Login>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
       try {
         await repo.signIn(email: event.email, password: event.password);
-        emit(state.copyWith(loginEitherFailureOrUnit: some(right(unit))));
+        emit(state.copyWith(isLoading:false, loginEitherFailureOrUnit: some(right(unit))));
       } catch (e) {
         emit(state.copyWith(
+            isLoading: false,
             loginEitherFailureOrUnit:
                 some(left(Failure(message: e.toString())))));
       }
     });
 
     on<SignUp>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
       try {
         await repo.signUp(email: event.email, password: event.password);
-        emit(state.copyWith(signupEitherFailureOrUnit: some(right(unit))));
+        emit(state.copyWith(isLoading:false, signupEitherFailureOrUnit: some(right(unit))));
       } catch (e) {
         emit(state.copyWith(
+            isLoading:false,
             signupEitherFailureOrUnit:
                 some(left(Failure(message: e.toString())))));
       }
