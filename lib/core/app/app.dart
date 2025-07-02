@@ -1,3 +1,4 @@
+import 'package:dailypulsenews/core/provider/app_provider.dart';
 import 'package:dailypulsenews/core/routers/router.dart';
 import 'package:dailypulsenews/l10n/app_localizations.dart';
 import 'package:dailypulsenews/core/utils/theme/colour_scheme.dart';
@@ -12,24 +13,26 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(375, 812),
-      builder: (context, child) => MaterialApp.router(
-        themeMode: ThemeMode.system,
-        theme: ThemeData(
-            colorScheme: ColourScheme.lightScheme, useMaterial3: true),
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: const [
-          Locale('en'),
-        ],
-        debugShowCheckedModeBanner: false,
-        routerDelegate: _appRouter.delegate(),
-        routeInformationParser: _appRouter.defaultRouteParser(),
+    return AppProvider(
+      child: ScreenUtilInit(
+        designSize: const Size(375, 812),
+        builder: (context, child) => MaterialApp.router(
+          themeMode: ThemeMode.system,
+          theme: ThemeData(
+              colorScheme: ColourScheme.lightScheme, useMaterial3: true),
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: const [
+            Locale('en'),
+          ],
+          debugShowCheckedModeBanner: false,
+          routerDelegate: _appRouter.delegate(),
+          routeInformationParser: _appRouter.defaultRouteParser(),
+        ),
       ),
     );
   }
