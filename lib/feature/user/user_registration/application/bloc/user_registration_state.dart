@@ -7,5 +7,6 @@ abstract class UserRegistrationState with _$UserRegistrationState {
     @Default(false) bool signUpSelected,
     @Default(None()) Option<Either<Failure, Unit>>  loginEitherFailureOrUnit,
     @Default(None()) Option<Either<Failure, Unit>>  signupEitherFailureOrUnit,
+    @Default(None()) Option<Either<Failure, Unit>>  logOutEitherFailureOrUnit,
   }) = _UserRegistrationState;
 }
