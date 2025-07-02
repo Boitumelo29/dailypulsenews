@@ -3,7 +3,6 @@ import 'package:dailypulsenews/core/utils/logger/logger.dart';
 import 'package:dailypulsenews/feature/user/user_registration/domain/auth_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'dart:async';
 
 part 'auth_event.dart';
 
