@@ -22,10 +22,10 @@ class SplashPage extends StatelessWidget {
           context.router.replace(UserRegistrationRoute());
         }
       },
-      child: const Scaffold(
+      child:  Scaffold(
         body: Center(
           child: CircularProgressIndicator(
-            color: Colors.purple,
+            color: context.colorScheme.primary,
           ),
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:dailypulsenews/core/core.dart';
 import 'package:flutter/material.dart';
 
 class LongButton extends StatelessWidget {
@@ -19,7 +20,7 @@ class LongButton extends StatelessWidget {
         width: 410,
         height: 55,
         decoration: BoxDecoration(
-            color: Colors.purple, borderRadius: BorderRadius.circular(17)),
+            color: context.colorScheme.primary, borderRadius: BorderRadius.circular(17)),
         child: isLoading
             ? const Center(
                 child: SizedBox(

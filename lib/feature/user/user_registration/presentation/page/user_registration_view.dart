@@ -146,7 +146,7 @@ class UserRegistrationView extends StatelessWidget {
                                 title: loginSelected
                                     ? context.loc.login
                                     : context.loc.signup,
-                                isLoading: false),
+                                isLoading: state.isLoading),
                           ],
                         ),
                       ),

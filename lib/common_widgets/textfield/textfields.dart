@@ -1,3 +1,4 @@
+import 'package:dailypulsenews/core/extenstions/theme_extensions.dart';
 import 'package:flutter/material.dart';
 
 class LongTextFieldForm extends StatefulWidget {
@@ -53,8 +54,8 @@ class _LongTextFieldFormState extends State<LongTextFieldForm> {
         focusedBorder: widget.isRed
             ? OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
-                borderSide: const BorderSide(
-                  color: Colors.purple,
+                borderSide:  BorderSide(
+                  color: context.colorScheme.primary,
                   width: 0.7,
                 ),
               )
@@ -64,8 +65,8 @@ class _LongTextFieldFormState extends State<LongTextFieldForm> {
         enabledBorder: widget.isRed
             ? OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
-                borderSide: const BorderSide(
-                  color: Colors.purple,
+                borderSide: BorderSide(
+                  color: context.colorScheme.primary,
                   width: 0.7,
                 ),
               )
@@ -89,11 +90,11 @@ class _LongTextFieldFormState extends State<LongTextFieldForm> {
         labelText: widget.labelText,
         prefixText: widget.prefixText,
         errorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.purple),
+          borderSide:  BorderSide(color: context.colorScheme.primary),
           borderRadius: BorderRadius.circular(20),
         ),
         border: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.purple),
+            borderSide:  BorderSide(color: context.colorScheme.primary),
             borderRadius: BorderRadius.circular(20)),
       ),
 
