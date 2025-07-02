@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "165990851332",
+    "project_id": "dailypulsenews-b3a28",
+    "storage_bucket": "dailypulsenews-b3a28.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165990851332:android:213c3c505f30f5f0766651",
+        "android_client_info": {
+          "package_name": "com.example.dailypulsenews"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_V5LEi9GOgXr_kSuqaU2XqgYVMT_17Us"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
