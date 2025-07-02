@@ -1,7 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dailypulsenews/feature/headlines/presentation/pages/headlines_page.dart';
+import 'package:dailypulsenews/feature/article/presentation/page/article_detail_page.dart';
+import 'package:dailypulsenews/feature/headlines/data/models/article_model.dart';
+import 'package:dailypulsenews/feature/headlines/presentation/pages/headlines_wrapper.dart';
 import 'package:dailypulsenews/feature/headlines/presentation/pages/headlines_view.dart';
 import 'package:dailypulsenews/feature/user/user_registration/presentation/page/user_registration_page.dart';
+import 'package:flutter/material.dart';
 
 part 'router.gr.dart';
 
@@ -17,13 +20,17 @@ class AppRouter extends RootStackRouter {
             path: '/userRegistration',
             initial: true),
         AutoRoute(
-            page: HeadlinesRoute.page,
+            page: HeadlinesWrapperRoute.page,
             path: '/headlinesScreen',
             children: [
               AutoRoute(
-                page: HomeRoute.page,
+                page: HeadlinesRoute.page,
                 path: '',
-              )
+              ),
+              AutoRoute(
+                page: ArticleDetailRoute.page,
+                path: '',
+              ),
             ]),
       ];
 }
