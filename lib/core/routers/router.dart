@@ -3,7 +3,9 @@ import 'package:dailypulsenews/feature/article/presentation/page/article_detail_
 import 'package:dailypulsenews/feature/headlines/data/models/article_model.dart';
 import 'package:dailypulsenews/feature/headlines/presentation/pages/headlines_wrapper.dart';
 import 'package:dailypulsenews/feature/headlines/presentation/pages/headlines_view.dart';
+import 'package:dailypulsenews/feature/splash/splash_screen.dart';
 import 'package:dailypulsenews/feature/user/user_registration/presentation/page/user_registration_page.dart';
+import 'package:dailypulsenews/feature/user/user_registration/presentation/page/user_registration_view.dart';
 import 'package:flutter/material.dart';
 
 part 'router.gr.dart';
@@ -15,10 +17,15 @@ class AppRouter extends RootStackRouter {
 
   @override
   List<AutoRoute> get routes => [
+        AutoRoute(page: SplashRoute.page, path: '/splashPage', initial: true),
         AutoRoute(
+          page: UserRegistrationWrapperRoute.page,
+          path: '/userRegistration',
+          children: [ AutoRoute(
             page: UserRegistrationRoute.page,
-            path: '/userRegistration',
-            initial: true),
+            path: '',
+          ),]
+        ),
         AutoRoute(
             page: HeadlinesWrapperRoute.page,
             path: '/headlinesScreen',
