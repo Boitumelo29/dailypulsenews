@@ -17,9 +17,9 @@ class SplashPage extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state.status == AuthStatus.authenticated) {
-          context.router.replace(HeadlinesRoute());
+          context.router.replace(HeadlinesWrapperRoute());
         } else if (state.status == AuthStatus.unauthenticated) {
-          context.router.replace(UserRegistrationRoute());
+          context.router.replace(UserRegistrationWrapperRoute());
         }
       },
       child:  Scaffold(

@@ -13,7 +13,6 @@ class UserRegistrationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController email = TextEditingController();
-    final TextEditingController username = TextEditingController();
     final TextEditingController password = TextEditingController();
     final GlobalKey formKey = GlobalKey<FormState>();
 
@@ -91,13 +90,6 @@ class UserRegistrationView extends StatelessWidget {
                                 )
                               ],
                             ),
-                            if (signupSelected)
-                              LongTextFieldForm(
-                                  controller: username,
-                                  labelText: context.loc.username,
-                                  validator: (value) {
-                                    return Validation.usernameValidation(value);
-                                  }),
                             LongTextFieldForm(
                                 controller: email,
                                 labelText: context.loc.email,
@@ -138,9 +130,7 @@ class UserRegistrationView extends StatelessWidget {
                                             .read<UserRegistrationBloc>()
                                             .add(SignUp(
                                                 email: email.text.trim(),
-                                                password: password.text.trim(),
-                                                username:
-                                                    username.text.trim()));
+                                                password: password.text.trim(),));
                                   }
                                 },
                                 title: loginSelected
@@ -172,7 +162,7 @@ class UserRegistrationView extends StatelessWidget {
                 ),
               );
             }, (unit) {
-              context.router.pushAndPopUntil(HeadlinesRoute(),
+              context.router.pushAndPopUntil(HeadlinesWrapperRoute(),
                   predicate: (route) => false);
             }));
 
@@ -186,7 +176,7 @@ class UserRegistrationView extends StatelessWidget {
                 ),
               );
             }, (unit) {
-              context.router.pushAndPopUntil(HeadlinesRoute(),
+              context.router.pushAndPopUntil(HeadlinesWrapperRoute(),
                   predicate: (route) => false);
             }));
 

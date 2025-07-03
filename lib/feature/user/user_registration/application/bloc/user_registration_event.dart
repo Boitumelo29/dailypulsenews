@@ -8,5 +8,5 @@ class UserRegistrationEvent with _$UserRegistrationEvent {
   const factory UserRegistrationEvent.resetState() = ResetState;
   const factory UserRegistrationEvent.registrationSelected({ required RegistrationType registrationType}) =RegistrationSelected;
   const factory UserRegistrationEvent.login({ required String email, required String password}) =Login;
-  const factory UserRegistrationEvent.signUp({ required String email, required String password, required String username}) =SignUp;
+  const factory UserRegistrationEvent.signUp({ required String email, required String password}) =SignUp;
 }
