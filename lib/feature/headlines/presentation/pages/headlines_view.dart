@@ -44,7 +44,11 @@ class _HeadlinesViewState extends State<HeadlinesView> {
             }
 
             if (state.articles.isEmpty) {
-              return Center(child: Text(context.loc.noNewNews));
+              return Center(
+                  child: Text(
+                context.loc.noNewNews,
+                style: context.textTheme.bodyLarge,
+              ));
             }
 
             return ListView.builder(
