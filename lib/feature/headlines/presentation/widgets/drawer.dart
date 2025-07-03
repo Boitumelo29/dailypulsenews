@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dailypulsenews/core/core.dart';
-import 'package:dailypulsenews/core/extenstions/localization_extensions.dart';
 import 'package:dailypulsenews/feature/auth/application/bloc/auth_bloc.dart';
 import 'package:dailypulsenews/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +17,7 @@ class UserDrawer extends StatelessWidget {
           BlocListener<AuthBloc, AuthState>(
             listener: (context, state) {
               if (state.status == AuthStatus.logout) {
-                context.router.replace(UserRegistrationRoute());
+                context.router.replace(UserRegistrationWrapperRoute());
               }
             },
             child: DrawerHeader(
