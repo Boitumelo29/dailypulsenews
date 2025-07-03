@@ -3,7 +3,7 @@ import 'package:dailypulsenews/feature/article/presentation/page/article_detail_
 import 'package:dailypulsenews/feature/headlines/data/models/article_model.dart';
 import 'package:dailypulsenews/feature/headlines/presentation/pages/headlines_wrapper.dart';
 import 'package:dailypulsenews/feature/headlines/presentation/pages/headlines_view.dart';
-import 'package:dailypulsenews/feature/splash/splash_screen.dart';
+import 'package:dailypulsenews/feature/splash/presentation/page/splash_screen.dart';
 import 'package:dailypulsenews/feature/user/user_registration/presentation/page/user_registration_page.dart';
 import 'package:dailypulsenews/feature/user/user_registration/presentation/page/user_registration_view.dart';
 import 'package:flutter/material.dart';
