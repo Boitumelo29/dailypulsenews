@@ -4,7 +4,7 @@ import 'package:dailypulsenews/feature/auth/application/bloc/auth_bloc.dart';
 import 'package:dailypulsenews/feature/headlines/application/bloc/news_bloc.dart';
 import 'package:dailypulsenews/feature/headlines/data/datasources/news_api_service.dart';
 import 'package:dailypulsenews/feature/headlines/domain/repositories/news_repository.dart';
-import 'package:dailypulsenews/feature/headlines/domain/repositories/news_repository_impl.dart';
+import 'package:dailypulsenews/feature/headlines/data/repo/news_repository_impl.dart';
 import 'package:dailypulsenews/feature/user/user_registration/application/bloc/user_registration_bloc.dart';
 import 'package:dailypulsenews/feature/user/user_registration/data/firebase_auth_service.dart';
 import 'package:dailypulsenews/feature/user/user_registration/domain/auth_repository.dart';
